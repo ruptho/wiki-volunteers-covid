@@ -2,7 +2,7 @@ import logging
 
 from helpers.load import create_folder
 
-DEFAULT_PATH = '../../logging'
+DEFAULT_PATH = '../logging'
 
 
 # "Kind of a singleton/factory"
