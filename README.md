@@ -21,4 +21,5 @@ Helper code files are structured as follows:
 The following folders contain additional information:
 - data: input and output files of the preprocessing pipeline (generated paths depend on the set directories in vars.py)
 - csv/did: did statistics (coefficients, std.err.) and results
+- img: plots generated during the analysis and ouput of results
 - data/results: contains preprocessed data (aggregated.tsv.bz2)
