@@ -1,6 +1,6 @@
 import logging
 
-from helpers.load import create_folder
+from helpers.files import create_folder
 
 DEFAULT_PATH = '../logging'
 
