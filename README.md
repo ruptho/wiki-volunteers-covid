@@ -1,7 +1,7 @@
 # Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions
 Repository for the preprint "Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions" (TODO arXiv link).
 
-This repository contains Python Code for experiments conducted during the creation of the paper, as well code for dataset retrieval and preprocessing code. Under data/results we furthermore provide the final product of the preprocessing pipeline (aggregated.tsv.bz2), on which we perform the bulk of our experiments.
+This repository contains Python Code for experiments conducted during the creation of the paper, as well code for dataset retrieval and preprocessing. Under data/results we furthermore provide the final product of the preprocessing pipeline (aggregated.tsv.bz2), on which we perform the bulk of our experiments.
 
 The following notebooks demonstrate the results of the study, while importing most of their functionality from the python-scripts under the "helpers"-Folder:
 - 0_download.ipynb: automatically downloads mediawiki history dumps of the studied Wikipedias
