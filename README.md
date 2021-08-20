@@ -28,6 +28,6 @@ The following folders contain additional information:
 ## Demo for processing arbitrary Wikipedia language editions
 You can find a demo of how one would analyze any arbitrary language editions using our methodology under the "demo"-Folder.
 
-In the specific use case depicted there, we compute Wikipedia language editions covering large parts of Eastern Europe (Polish, Czech, Ukrainian, and Russian). The data is first downloaded, then preprocessed, and lastly analyzed before results are being visualized in the notebooks and saved to the given subfolders (did/demo/, img/demo/).
+In the specific use case depicted there, we compute Wikipedia language editions covering large parts of Eastern Europe (Polish, Czech, Ukrainian, and Russian Wikipedia). The data is first downloaded, then preprocessed, and lastly analyzed before results are being visualized in the notebooks and saved to the given subfolders (did/demo/, img/demo/).
 
 The notebooks in this folder repurpose the code and analysis from the main notebooks. This demo also demonstrates which parts of the code can be modified to customize, for example, details of the analysis and visualization.
