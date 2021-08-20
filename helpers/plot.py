@@ -22,6 +22,7 @@ def format_labels_thousand_comma(ax):
     ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
     return ax
 
+
 def plot_dates(ax, start, end, x, y, xticklabels=True, ls="solid", adjust=False, sci=True, color='blue'):
     start = datetime.datetime.strptime(str(start), "%Y%m%d")
     end = datetime.datetime.strptime(str(end), "%Y%m%d")
@@ -90,7 +91,8 @@ def plot_language_dashed_dnd(pd_dnd, lang, column, changepoint, min_y=None, max_
 
 def plot_all_dashed_dnd(pd_dnd, column, min_y=None, max_y=None, limit_y=0.5, codes=None, figsize=(12, 2.5),
                         y_title=1.2, y_legend1=1.2, x_legend2=1.1, header=True, use_log=True,
-                        fig_plt=None, ax_plt=None, ylabel=None, fs_legend=12, colors=None, country_legend=True):
+                        fig_plt=None, ax_plt=None, ylabel=None, fs_legend=12, colors=None, country_legend=True,
+                        mobility_changepoint=None, mobility_reverted=None):
     codes = list(pd_dnd.lang.unique()) if not codes else codes
 
     if not ax_plt:
@@ -98,8 +100,13 @@ def plot_all_dashed_dnd(pd_dnd, column, min_y=None, max_y=None, limit_y=0.5, cod
     else:
         fig, ax = fig_plt, ax_plt
 
-    delta_day_dict = {code: (mobility_reverted_dict[code] - mobility_changepoint_dict[code]).days for code in
-                      mobility_changepoint_dict}
+    if not mobility_changepoint:
+        mobility_changepoint = mobility_changepoint_dict
+    if not mobility_reverted:
+        mobility_reverted = mobility_reverted_dict
+
+    delta_day_dict = {code: (mobility_reverted[code] - mobility_changepoint[code]).days for code in
+                      mobility_changepoint}
     sig_line = ax.axhline(0, color='black')
 
     for i, code in enumerate(codes):
@@ -157,7 +164,9 @@ def plot_metric_and_did_all_categories(agg, pd_dnd, getters, column, code_cats, 
                                        colors=colorblind_tol,  # ('tab:blue', 'tab:red', 'tab:orange', 'tab:green'),
                                        dates=((20200101, 20200930), (20190101, 20190930), (20180101, 20180930)),
                                        year_labels=('2020', '2019', '2018'), lines_params=("-", '--', ':'), sci=True,
-                                       figsize=(40, 15), intervention_delta=0):
+                                       figsize=(40, 15), intervention_delta=0, mobility_changepoint=None,
+                                       mobility_reverted=None, helper_langs=helper_langs,
+                                       label_coords=((0.07, 0.775), (0.07, 0.5), (0.07, 0.225))):
     fig = plt.figure(figsize=figsize)
     main_grid = gridspec.GridSpec(len(code_cats), 1, figure=fig, hspace=0.25)
 
@@ -212,7 +221,9 @@ def plot_metric_and_did_all_categories(agg, pd_dnd, getters, column, code_cats, 
         did_ax = fig.add_subplot(gs[0:4, 1:])
         sub_fig, ax = plot_all_dashed_dnd(pd_dnd, column, min_y=min_y, max_y=max_y, codes=codes, header=False,
                                           fig_plt=fig, ax_plt=did_ax, fs_legend='x-large', colors=colors,
-                                          country_legend=False, y_legend1=1.3)
+                                          country_legend=False, y_legend1=1.3,
+                                          mobility_changepoint=mobility_changepoint,
+                                          mobility_reverted=mobility_reverted)
 
         first_fig = sub_fig if not first_fig else first_fig
 
@@ -273,9 +284,10 @@ def plot_metric_and_did_all_categories(agg, pd_dnd, getters, column, code_cats, 
     first_ax.add_artist(leg_years)
     ax.set_xlabel('Day after Mobility Changepoint\n\n(b)', labelpad=15, fontsize='x-large')
     fig.suptitle(column, fontsize='xx-large', x=0.04, y=0.5, ha='left', va='center', rotation=90)
-    fig.text(0.07, 0.5, labels[1], ha='left', va='center', rotation=90, fontsize='x-large')
-    fig.text(0.07, 0.225, labels[2], ha='left', va='center', rotation=90, fontsize='x-large')
-    fig.text(0.07, 0.775, labels[0], ha='left', va='center', rotation=90, fontsize='x-large')
+
+    for i, label in enumerate(labels):
+        fig.text(label_coords[i][0], label_coords[i][1], label, ha='left', va='center', rotation=90, fontsize='x-large')
+
     return fig
 
 
