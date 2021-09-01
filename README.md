@@ -26,7 +26,7 @@ The following folders contain additional information:
 - data/results: contains preprocessed data (aggregated.tsv.bz2)
 
 ## Demo for processing arbitrary Wikipedia language editions
-You can find a demo of how one would analyze any arbitrary language editions using our methodology under the "demo"-Folder.
+A demonstration of how to analyze arbitrary language editions using our methodology can be found under the "demo"-Folder.
 
 In the specific use case depicted there, we compute Wikipedia language editions covering large parts of Eastern Europe (Polish, Czech, Ukrainian, and Russian Wikipedia). The data is first downloaded, then preprocessed, and lastly analyzed before results are being visualized in the notebooks and saved to the given subfolders (did/demo/, img/demo/).
 
