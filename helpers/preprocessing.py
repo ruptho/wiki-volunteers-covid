@@ -41,7 +41,7 @@ def aggregate_preprocess_results(codes, dict_edits, dict_newcomers, dict_reverts
         try:
             df_gb = process_edits(dict_edits, code)
             # group edits
-            df_gb.rename({"title": "index", 'event_user_id': 'count', 'revision_text_bytes': 'rev_len_sum'},
+            df_gb.rename({"title": "index", 'event_user_id': 'count', 'revision_text_bytes_diff': 'rev_len_sum'},
                          inplace=True, axis=1)
             final = df_gb.groupby(["date", "covid", "user_kind"]).sum().reset_index()
 
