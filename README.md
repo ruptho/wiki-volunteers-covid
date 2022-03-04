@@ -1,5 +1,5 @@
 # Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions
-Repository for the preprint "Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions" (https://arxiv.org/abs/2102.10090).
+Repository for "Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions" as published in Nature Scientific Reports (https://www.nature.com/articles/s41598-021-00789-3).
 
 This repository contains Python Code for experiments conducted during the creation of the paper, as well code for dataset retrieval and preprocessing. Under data/results we furthermore provide the final product of the preprocessing pipeline (aggregated.tsv.bz2), on which we perform the bulk of our experiments.
 
