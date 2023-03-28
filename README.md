@@ -1,5 +1,5 @@
 # Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions
-Repository for the preprint "Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions" (https://arxiv.org/abs/2102.10090).
+Repository for "Volunteer contributions to Wikipedia increased during COVID-19 mobility restrictions" as published in Nature Scientific Reports (https://www.nature.com/articles/s41598-021-00789-3).
 
 This repository contains Python Code for experiments conducted during the creation of the paper, as well code for dataset retrieval and preprocessing. Under data/results we furthermore provide the final product of the preprocessing pipeline (aggregated.tsv.bz2), on which we perform the bulk of our experiments.
 
@@ -26,7 +26,7 @@ The following folders contain additional information:
 - data/results: contains preprocessed data (aggregated.tsv.bz2)
 
 ## Demo for processing arbitrary Wikipedia language editions
-You can find a demo of how one would analyze any arbitrary language editions using our methodology under the "demo"-Folder.
+A demonstration of how to analyze arbitrary language editions using our methodology can be found under the "demo"-Folder.
 
 In the specific use case depicted there, we compute Wikipedia language editions covering large parts of Eastern Europe (Polish, Czech, Ukrainian, and Russian Wikipedia). The data is first downloaded, then preprocessed, and lastly analyzed before results are being visualized in the notebooks and saved to the given subfolders (did/demo/, img/demo/).
 
